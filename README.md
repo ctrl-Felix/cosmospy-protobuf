@@ -1,6 +1,8 @@
 # Cosmos Protobuf
 This repository compains the whole cosmos protobuf files compiled for python and ready to use with grpc. Please use the according .proto file as documentation for each python file.
 
+This is a build in progress and only a rudimentary state right now. However I hope this helps every python developer who struggles to use grpc and protobuf. To get the example below running clone this code and create a new file in the root of this repository.
+
 ## Usage
 
 The following code snippet will query the balances for the address ``osmo15hzhcvgs2ljfng6unghvr5l32prwqdyq4aguxn``. The according query.proto file in the bank subdirectory contains the Request and the Response for this request. This is also the place where you can see that you will get two values. First the balances which we will print below as well as the pagination which could then be accessed through ``r.pagination`` 
@@ -11,7 +13,7 @@ import cosmos.bank.v1beta1.query_pb2 as query_pb2
 host = "osmosis.strange.love"
 port = "9090"
 
-c = grpc.insecure_channel('{}:{}'.format(host, port))
+c = grpc.insecure_channel(f'{host}:{port}')
 stub = query_pb2_grpc.QueryStub(c)
 
 
