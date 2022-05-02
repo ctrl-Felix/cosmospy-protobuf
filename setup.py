@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
@@ -8,6 +8,6 @@ setup(
    author='ctrl-Felix',
    author_email='dev@ctrl-felix.de',
    packages=['cosmospy_protobuf'],
-   package_dir={'cosmos': 'cosmospy_protobuf'},
-   install_requires=[], #external packages as dependencies
+   install_requires=[],
+   include_package_data=True
 )
