@@ -57,6 +57,7 @@ def remove_all_compiled_python_files(directory):
                 logging.info(f"Deleting {os.path.join(root, filename)}")
                 os.remove(os.path.join(root, filename))
 
+
 remove_all_compiled_python_files(package_name)
 walk_through_project_and_compile_proto(package_name)
 walk_through_project_and_fix_imports(package_name)
