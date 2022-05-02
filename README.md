@@ -5,17 +5,18 @@ This is a build in progress and only a rudimentary state right now. However I ho
 
 ## Usage
 
-The following code snippet will query the balances for the address ``osmo15hzhcvgs2ljfng6unghvr5l32prwqdyq4aguxn``. The according query.proto file in the bank subdirectory contains the Request and the Response for this request. This is also the place where you can see that you will get two values. First the balances which we will print below as well as the pagination which could then be accessed through ``r.pagination`` 
+The following code snippet will query the balances for the address ``osmo15hzhcvgs2ljfng6unghvr5l32prwqdyq4aguxn``. The according query.proto file in the bank subdirectory contains the Request and the Response for this request. This is also the place where you can see that you will get two values. First the balances which we will print below as well as the pagination which could then be accessed through ``r.pagination``
+
 ```python
 import grpc
-import cosmos.bank.v1beta1.query_pb2_grpc as query_pb2_grpc
-import cosmos.bank.v1beta1.query_pb2 as query_pb2
+import cosmospy_protobuf.cosmos.bank.v1beta1.query_pb2_grpc as query_pb2_grpc
+import cosmospy_protobuf.cosmos.bank.v1beta1.query_pb2 as query_pb2
+
 host = "osmosis.strange.love"
 port = "9090"
 
 c = grpc.insecure_channel(f'{host}:{port}')
 stub = query_pb2_grpc.QueryStub(c)
-
 
 r = stub.AllBalances(query_pb2.QueryAllBalancesRequest(address="osmo15hzhcvgs2ljfng6unghvr5l32prwqdyq4aguxn"))
 print(r.balances)
