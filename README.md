@@ -41,3 +41,8 @@ After compiling all the files with protoc you need to fix the imports by using [
 Note:
 * The --grpc_python_out=. is only needed when compiling a query.proto file as these define the actual grpc query
 * To compile the whole project it is favorable to match all proto files by using `*.proto` instead of each individual file. You can also match the whole folders to compile multiple folders at the same time. Not that the folders might contain sub-folders.
+
+## Other Cosmos based coins
+Currently following coins are supported by this library:
+* Osmosis
+* Umee

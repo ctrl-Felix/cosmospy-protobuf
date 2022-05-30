@@ -27,6 +27,7 @@ def run_protoc(filepath):
 
 
 def fix_proto_imports(filepath):
+    logging.info(f"Fixing file at: {filepath}")
     cmd = [sys.executable, '-m', 'protoletariat',
            '--create-package', '--in-place',
            '--python-out', 'cosmospy_protobuf',
