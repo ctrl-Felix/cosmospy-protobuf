@@ -1,7 +1,7 @@
+import logging
 import os
 import subprocess
 import sys
-import logging
 
 package_name = "cosmospy_protobuf"
 logging.basicConfig(
