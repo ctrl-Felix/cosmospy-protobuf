@@ -33,9 +33,14 @@ jobs:
       run: python compile.py
     - name: Build package
       run: python -m build
+    - name: Generate release tag
+      id: tag
+      run: echo "::set-output name=release_tag::Build_$(date +"%Y.%m.%d_%H-%M")"
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: beta
+        tag_name: ${{ steps.tag.outputs.release_tag }}
         files: dist/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
