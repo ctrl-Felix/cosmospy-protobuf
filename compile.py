@@ -4,9 +4,8 @@ import subprocess
 import sys
 
 package_name = "cosmospy_protobuf"
-logging.basicConfig(
-    format="%(asctime)s - %(levelname)s:%(message)s", level=logging.DEBUG
-)
+logging.basicConfig(format="%(asctime)s - %(levelname)s:%(message)s",
+                    level=logging.DEBUG)
 absolute_path = os.path.abspath(package_name)
 
 
@@ -67,7 +66,8 @@ def walk_through_project_and_fix_imports(directory):
     for root, dirs, files in os.walk(directory):
         for filename in files:
             if filename.endswith(".proto"):
-                fix_proto_imports(os.path.abspath(os.path.join(root, filename)))
+                fix_proto_imports(os.path.abspath(os.path.join(root,
+                                                               filename)))
                 logging.info(f"Fixed imports for {filename}")
 
 
