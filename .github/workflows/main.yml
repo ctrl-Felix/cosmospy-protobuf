@@ -36,5 +36,6 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: dist/cosmospy_protobuf-0.0.0.tar.gz
+        tag_name: beta
+        files: dist/*
         
