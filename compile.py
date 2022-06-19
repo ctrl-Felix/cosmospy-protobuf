@@ -60,5 +60,5 @@ def remove_all_compiled_python_files(directory):
 
 
 remove_all_compiled_python_files(package_name)
-#walk_through_project_and_compile_proto(package_name)
-#walk_through_project_and_fix_imports(package_name)
+walk_through_project_and_compile_proto(package_name)
+walk_through_project_and_fix_imports(package_name)
