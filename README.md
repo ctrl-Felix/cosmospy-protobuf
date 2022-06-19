@@ -5,7 +5,7 @@ This repository compains the whole cosmos protobuf files compiled for python and
 
 You can install this package directly from the repository by using:
 ```
-python -m pip install git+https://github.com/ctrl-Felix/cosmospy-protobuf.git
+python -m pip install <latest release .tar.gz>
 ```
 
 ## Usage
