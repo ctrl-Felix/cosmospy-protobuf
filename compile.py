@@ -9,7 +9,7 @@ absolute_path = os.path.abspath(package_name)
 
 
 def run_protoc(filepath):
-    if os.path.basename(filepath) == "query.proto":
+    if os.path.basename(filepath) == "query.proto" or os.path.basename(filepath) == "service.proto":
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                '--proto_path', absolute_path,
                '--python_out', 'cosmospy_protobuf',

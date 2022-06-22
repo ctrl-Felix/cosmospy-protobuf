@@ -3,3 +3,5 @@
 test/
 dist/
 cosmospy_protobuf.egg-info
+cosmospy_protobuf/*.py
+cosmospy_protobuf/*.pyi
