@@ -45,5 +45,6 @@ Note:
 ## Other Cosmos based coins
 Currently following coins are supported by this library:
 * Akash
+* Cosmos
 * Osmosis
 * Umee
