@@ -1,22 +1,29 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "cosmospy_protobuf"
+version = "0.0.1"
 description = "This package contains a compiled python version of all cosmos protobuf files with their dependencies"
 authors = [
     { name = "ctrl-felix", email = "dev@ctrl-felix.de" },
 ]
 readme = "README.md"
-keywords = ["cosmospy", "proto", "cosmospy-prtoobuf"]
+keywords = ["cosmospy", "proto", "cosmospy-protobuf"]
 license = {text = "BSD 3-Clause License"}
 classifiers = [
-    "Intended Audience  :: Developers",
     "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
 ]
 dependencies = [
     "protobuf",
 ]
-dynamic = ["version"]
+dynamic = []
 
+[project.urls]
+"Homepage" = "https://github.com/ctrl-Felix/cosmospy-protobuf/"
+"Bug Tracker" = "https://github.com/ctrl-Felix/cosmospy-protobuf/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cosmospy_protobuf"]
