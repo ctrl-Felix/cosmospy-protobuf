@@ -1,7 +1,9 @@
 import os
+import re
 import subprocess
 import sys
 import logging
+import massedit
 
 package_name = 'src/cosmospy_protobuf'
 logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logging.DEBUG)
@@ -58,7 +60,22 @@ def remove_all_compiled_python_files(directory):
                 logging.info(f"Deleting {os.path.join(root, filename)}")
                 os.remove(os.path.join(root, filename))
 
+def rename_any_proto_imports(directory):
+    for root, dirs, files in os.walk(directory):
+        for filename in files:
+            with open(os.path.join(root, filename), 'r') as file:
+                lines = file.readlines()
 
+            if 'import "google/protobuf/any.proto";\n' in lines:
+                with open(os.path.join(root, filename), 'w') as file:
+                    for line in lines:
+                        file.write(re.sub(r'^import "google/protobuf/any.proto";\n', 'import "google/protobuf/cosmos_any.proto";\n', line))
+
+
+
+
+
+#rename_any_proto_imports(package_name)
 remove_all_compiled_python_files(package_name)
 walk_through_project_and_compile_proto(package_name)
 walk_through_project_and_fix_imports(package_name)
