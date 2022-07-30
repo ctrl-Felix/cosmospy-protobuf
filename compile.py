@@ -3,7 +3,6 @@ import re
 import subprocess
 import sys
 import logging
-import massedit
 
 package_name = 'src/cosmospy_protobuf'
 logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logging.DEBUG)
