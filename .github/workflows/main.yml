@@ -30,7 +30,7 @@ jobs:
         pip install build protoletariat
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Compile python protobuf files
-      run: python src/compile.py
+      run: python compile.py
     - name: Build package
       run: python -m build
     - name: Generate release tag
