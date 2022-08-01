@@ -28,10 +28,17 @@ print(r.balances)
 
 ```
 
-## Compile the Protobuf files
+## Build yourself
+There are two scripts helping you to fork this repository to work with any cosmos based coin.
+1. Create a config in ``configs`` and take a existing one as example
+2. Run the ``aggregate.py`` file with your filename without ``.json`` (Example ``python aggregate.py cosmos``)
+3. Run the ``compile.py`` to compile all your files to protobuf
+4. Build your package. You're done!
+5. 
+## Protobuf compilation 
 
-The files are compield using the ``grpc_tools.protoc`` command from the [grpcio-tools](https://pypi.org/project/grpcio-tools/) library.
-To compile a .proto file use following command:
+The files are compiled using the ``grpc_tools.protoc`` command from the [grpcio-tools](https://pypi.org/project/grpcio-tools/) library.
+To compile a .proto file manually use following command:
 ```
 python -m grpc_tools.protoc -I <absolute path to project root> --python_out=. --grpc_python_out=. <absolute path to .proto file>
 ```
@@ -43,9 +50,6 @@ Note:
 * To compile the whole project it is favorable to match all proto files by using `*.proto` instead of each individual file. You can also match the whole folders to compile multiple folders at the same time. Not that the folders might contain sub-folders.
 
 ## Other Cosmos based coins
-Currently following coins are supported by this library:
-* Akash
-* Bitsong
-* Cosmos
-* Osmosis
-* Umee
+Currently following coins are maintained by me:
+* Cosmos (this branch)
+* Osmosis (branch: osmosis, package name: `osmosis-protobuf`)

@@ -1,5 +1,3 @@
-// https://github.com/cosmos/cosmos-sdk/blob/main/third_party/proto/google/protobuf/any.proto
-
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
 // https://developers.google.com/protocol-buffers/
@@ -39,7 +37,7 @@ import "gogoproto/gogo.proto";
 option csharp_namespace = "Google.Protobuf.WellKnownTypes";
 option go_package = "types";
 option java_package = "com.google.protobuf";
-option java_outer_classname = "CosmosAnyProto";
+option java_outer_classname = "AnyProto";
 option java_multiple_files = true;
 option objc_class_prefix = "GPB";
 
@@ -158,9 +156,6 @@ message Any {
   bytes value = 2;
 
   option (gogoproto.typedecl) = false;
-  option (gogoproto.goproto_stringer) = false;
-  option (gogoproto.gostring) = false;
-  option (gogoproto.stringer) = false;
 }
 
 option (gogoproto.goproto_registration) = false;

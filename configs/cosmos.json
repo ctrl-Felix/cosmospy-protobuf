@@ -1,0 +1,32 @@
+{
+  "https://github.com/cosmos/cosmos-sdk.git": {
+    "include": true,
+    "branch": "v0.45.3",
+    "paths": ["proto/cosmos"]
+  },
+  "https://github.com/tendermint/tendermint.git": {
+    "include": true,
+    "branch": "v0.34.14",
+    "paths": ["proto/tendermint"]
+  },
+  "https://github.com/cosmos/ibc-go": {
+    "include": true,
+    "branch": "v3.0.0",
+    "paths": ["proto/ibc", "third_party/proto/google"]
+  },
+  "https://github.com/cosmos/cosmos-proto.git": {
+    "include": true,
+    "branch": "main",
+    "paths": ["proto/cosmos_proto"]
+  },
+  "https://github.com/cosmos/gogoproto.git": {
+    "include": true,
+    "branch": "master",
+    "paths": ["gogoproto"]
+  },
+  "https://github.com/confio/ics23.git": {
+    "include": true,
+    "branch": "master",
+    "paths": ["proofs.proto"]
+  }
+}
