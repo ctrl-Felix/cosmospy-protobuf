@@ -1,6 +1,4 @@
 .idea
-*.pyc
-*.pyi
 test/
 dist/
 cosmospy_protobuf.egg-info

@@ -1,9 +1,9 @@
-import errno
 import json
 import os
 import shutil
 import time
-from os.path import dirname, abspath, isfile
+from os.path import dirname, abspath, isfile, isdir
+import fnmatch
 import argparse
 
 from git import Repo
@@ -12,6 +12,16 @@ parser = argparse.ArgumentParser(description='Aggregate all protobuf files')
 parser.add_argument('coin', type=str, help="Coin to parse from the .json file in the config folder")
 args = parser.parse_args()
 
+# https://stackoverflow.com/questions/52071642/python-copying-the-files-with-include-pattern
+def include_patterns(*patterns):
+    def _ignore_patterns(path, names):
+        keep = set(name for pattern in patterns
+                   for name in fnmatch.filter(names, pattern))
+        ignore = set(name for name in names
+                     if name not in keep and not isdir(os.path.join(path, name)))
+        return ignore
+
+    return _ignore_patterns
 # Get current directory
 d = dirname(abspath(__file__))
 
@@ -38,6 +48,9 @@ os.mkdir(project_dir)
 root_dir = 'src/cosmospy_protobuf'
 root_abs_path = os.path.join(d, root_dir)
 for filename in os.listdir(root_abs_path):
+    if filename == ".gitignore":
+        continue
+
     file_path = os.path.join(root_abs_path, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
@@ -63,9 +76,9 @@ for repo_url, repo_config in coin_config.items():
         proto_dir = os.path.join(repo_dir, proto_folder)
         category_name = proto_folder.split('/')[-1]
         try:
-            shutil.copytree(proto_dir, root_abs_path + "/" + category_name, dirs_exist_ok=True, ignore=shutil.ignore_patterns("*.go"))
+            shutil.copytree(proto_dir, root_abs_path + "/" + category_name, dirs_exist_ok=True, ignore=include_patterns("*.proto"))
             print(f"Copied {category_name}")
-        except OSError as exc:  # python >2.5
+        except OSError as exc:
             try:
                 shutil.copy(proto_dir, root_abs_path)
                 print(f"File {proto_dir} copied successfully")
