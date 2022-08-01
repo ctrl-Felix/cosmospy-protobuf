@@ -1,11 +1,11 @@
-# Cosmos Protobuf
-This repository compains the whole cosmos protobuf files compiled for python and ready to use with grpc. Please use the according .proto file as documentation for each python file.
+# Osmosis Protobuf
+This repository contains the whole osmosis protobuf files compiled for python and ready to use with grpc. Please use the according .proto file as documentation for each python file.
 
 ## Installation
 
 You can install this package directly from the repository by using:
 ```
-python -m pip install cosmospy-protobuf
+python -m pip install osmosis-protobuf
 ```
 
 ## Usage
@@ -14,8 +14,8 @@ The following code snippet will query the balances for the address ``osmo15hzhcv
 
 ```python
 import grpc
-import cosmospy_protobuf.cosmos.bank.v1beta1.query_pb2_grpc as query_pb2_grpc
-import cosmospy_protobuf.cosmos.bank.v1beta1.query_pb2 as query_pb2
+import osmosis_protobuf.cosmos.bank.v1beta1.query_pb2_grpc as query_pb2_grpc
+import osmosis_protobuf.cosmos.bank.v1beta1.query_pb2 as query_pb2
 
 host = "osmosis.strange.love"
 port = "9090"
@@ -51,5 +51,5 @@ Note:
 
 ## Other Cosmos based coins
 Currently following coins are maintained by me:
-* Cosmos (this branch)
-* Osmosis (branch: osmosis, package name: `osmosis-protobuf`)
+* Cosmos (branch: ``main``)
+* Osmosis (this branch)

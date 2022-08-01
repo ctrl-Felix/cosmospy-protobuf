@@ -4,7 +4,7 @@ import subprocess
 import sys
 import logging
 
-package_name = 'src/cosmospy_protobuf'
+package_name = 'src/osmosis_protobuf'
 logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logging.DEBUG)
 absolute_path = os.path.abspath(package_name)
 
@@ -13,14 +13,14 @@ def run_protoc(filepath):
     if os.path.basename(filepath) == "query.proto" or os.path.basename(filepath) == "service.proto":
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                '--proto_path', absolute_path,
-               '--python_out', 'src/cosmospy_protobuf',
-               '--grpc_python_out', 'src/cosmospy_protobuf',
+               '--python_out', package_name,
+               '--grpc_python_out', package_name,
                filepath]
         logging.info(f"Compiling proto and grpc file: {filepath}")
     else:
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                f'--proto_path={absolute_path}',
-               '--python_out=src/cosmospy_protobuf',
+               f'--python_out={package_name}',
                filepath]
         logging.info(f"Compiling proto file: {filepath}")
 
@@ -31,7 +31,7 @@ def fix_proto_imports(filepath):
     logging.info(f"Fixing file at: {filepath}")
     cmd = [sys.executable, '-m', 'protoletariat',
            '--create-package', '--in-place',
-           '--python-out', 'src/cosmospy_protobuf',
+           '--python-out', package_name,
            'protoc', f'--proto-path={absolute_path}',
            filepath]
     subprocess.run(cmd)

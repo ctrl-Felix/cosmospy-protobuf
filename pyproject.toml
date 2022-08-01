@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "cosmospy_protobuf"
-version = "0.0.2"
-description = "This package contains a compiled python version of all cosmos protobuf files with their dependencies"
+name = "osmosis_protobuf"
+version = "0.0.1"
+description = "This package contains a compiled python version of all osmosis protobuf files with their dependencies"
 authors = [
     { name = "ctrl-felix", email = "dev@ctrl-felix.de" },
 ]
 readme = "README.md"
-keywords = ["cosmospy", "proto", "cosmospy-protobuf", "cosmos", "cosmos-protobuf", "protobuf"]
+keywords = ["cosmospy", "osmosispy", "osmospy", "proto", "cosmospy-protobuf", "osmosis", "osmosis-protobuf", "protobuf"]
 license = {text = "BSD 3-Clause License"}
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -26,4 +26,4 @@ dynamic = []
 "Bug Tracker" = "https://github.com/ctrl-Felix/cosmospy-protobuf/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/cosmospy_protobuf"]
+packages = ["src/osmosis_protobuf"]
