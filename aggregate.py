@@ -45,7 +45,7 @@ project_dir = os.path.join(tmp_dir, str(time.time()))
 os.mkdir(project_dir)
 
 # Delete all existing protobuf files
-root_dir = 'src/osmosis_protobuf'
+root_dir = 'src/evmos_protobuf'
 root_abs_path = os.path.join(d, root_dir)
 for filename in os.listdir(root_abs_path):
     if filename == ".gitignore":

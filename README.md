@@ -1,11 +1,11 @@
-# Osmosis Protobuf
-This repository contains the whole osmosis protobuf files compiled for python and ready to use with grpc. Please use the according .proto file as documentation for each python file.
+# evmos Protobuf
+This repository contains the whole evmos protobuf files compiled for python and ready to use with grpc. Please use the according .proto file as documentation for each python file.
 
 ## Installation
 
 You can install this package directly from the repository by using:
 ```
-python -m pip install osmosis-protobuf
+python -m pip install evmos-protobuf
 ```
 
 ## Usage
@@ -14,10 +14,10 @@ The following code snippet will query the balances for the address ``osmo15hzhcv
 
 ```python
 import grpc
-import osmosis_protobuf.cosmos.bank.v1beta1.query_pb2_grpc as query_pb2_grpc
-import osmosis_protobuf.cosmos.bank.v1beta1.query_pb2 as query_pb2
+import evmos_protobuf.cosmos.bank.v1beta1.query_pb2_grpc as query_pb2_grpc
+import evmos_protobuf.cosmos.bank.v1beta1.query_pb2 as query_pb2
 
-host = "osmosis.strange.love"
+host = "evmos.strange.love"
 port = "9090"
 
 c = grpc.insecure_channel(f'{host}:{port}')
@@ -52,4 +52,4 @@ Note:
 ## Other Cosmos based coins
 Currently following coins are maintained by me:
 * Cosmos (branch: ``main``)
-* Osmosis (this branch)
+* evmos (this branch)

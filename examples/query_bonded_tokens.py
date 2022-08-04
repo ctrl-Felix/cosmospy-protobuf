@@ -2,7 +2,7 @@ import cosmospy_protobuf.cosmos.staking.v1beta1.query_pb2 as query_pb2
 import cosmospy_protobuf.cosmos.staking.v1beta1.query_pb2_grpc as query_pb2_grpc
 import grpc
 
-host = "osmosis.strange.love"
+host = "evmos.strange.love"
 port = 9090
 
 

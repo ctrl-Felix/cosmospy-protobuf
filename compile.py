@@ -4,7 +4,7 @@ import subprocess
 import sys
 import logging
 
-package_name = 'src/osmosis_protobuf'
+package_name = 'src/evmos_protobuf'
 logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logging.DEBUG)
 absolute_path = os.path.abspath(package_name)
 

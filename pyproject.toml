@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "osmosis_protobuf"
+name = "evmos_protobuf"
 version = "0.0.1"
-description = "This package contains a compiled python version of all osmosis protobuf files with their dependencies"
+description = "This package contains a compiled python version of all evmos protobuf files with their dependencies"
 authors = [
     { name = "ctrl-felix", email = "dev@ctrl-felix.de" },
 ]
 readme = "README.md"
-keywords = ["cosmospy", "osmosispy", "osmospy", "proto", "cosmospy-protobuf", "osmosis", "osmosis-protobuf", "protobuf"]
+keywords = ["cosmospy", "evmospy", "osmospy", "proto", "cosmospy-protobuf", "evmos", "evmos-protobuf", "protobuf"]
 license = {text = "BSD 3-Clause License"}
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -26,4 +26,4 @@ dynamic = []
 "Bug Tracker" = "https://github.com/ctrl-Felix/cosmospy-protobuf/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/osmosis_protobuf"]
+packages = ["src/evmos_protobuf"]
