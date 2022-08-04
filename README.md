@@ -52,4 +52,5 @@ Note:
 ## Other Cosmos based coins
 Currently following coins are maintained by me:
 * Cosmos (this branch)
-* Osmosis (branch: osmosis, package name: `osmosis-protobuf`)
+* Evmos (branch: ``chain/evmos``, package name: ``evmos-protobuf``)
+* Osmosis (branch: ``chain/osmosis``, package name: `osmosis-protobuf`)
