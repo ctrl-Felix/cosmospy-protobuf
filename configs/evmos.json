@@ -1,8 +1,13 @@
 {
   "https://github.com/evmos/evmos.git": {
     "include": true,
-    "branch": "v6.0.4",
+    "branch": "v7.0.0",
     "paths": ["proto/evmos"]
+  },
+  "https://github.com/evmos/ethermint": {
+    "include": true,
+    "branch": "v0.18.0",
+    "paths": ["proto/ethermint"]
   },
   "https://github.com/cosmos/cosmos-sdk.git": {
     "include": true,

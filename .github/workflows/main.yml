@@ -6,13 +6,13 @@ permissions:
   contents: write
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "chain/evmos" ]
   
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'create release')"
+    if: "contains(github.event.head_commit.message, 'compile')"
     strategy:
       fail-fast: false
 

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "evmos_protobuf"
-version = "0.0.1"
+version = "0.1.0"
 description = "This package contains a compiled python version of all evmos protobuf files with their dependencies"
 authors = [
     { name = "ctrl-felix", email = "dev@ctrl-felix.de" },
