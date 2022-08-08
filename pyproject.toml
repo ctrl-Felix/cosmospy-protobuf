@@ -24,6 +24,7 @@ dynamic = []
 [project.urls]
 "Homepage" = "https://github.com/ctrl-Felix/cosmospy-protobuf/"
 "Bug Tracker" = "https://github.com/ctrl-Felix/cosmospy-protobuf/issues"
+"Changelog" = "https://github.com/ctrl-Felix/cosmospy-protobuf/blob/chain/evmos/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/evmos_protobuf"]
