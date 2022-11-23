@@ -1,17 +1,22 @@
 {
+  "https://github.com/crescent-network/crescent.git": {
+    "include": true,
+    "branch": "v2.3.0",
+    "paths": ["proto/crescent"]
+  },
   "https://github.com/cosmos/cosmos-sdk.git": {
     "include": true,
-    "branch": "v0.45.3",
+    "branch": "v0.45.9",
     "paths": ["proto/cosmos"]
   },
   "https://github.com/tendermint/tendermint.git": {
     "include": true,
-    "branch": "v0.34.14",
+    "branch": "v0.34.21",
     "paths": ["proto/tendermint"]
   },
   "https://github.com/cosmos/ibc-go": {
     "include": true,
-    "branch": "v3.0.0",
+    "branch": "v2.2.0",
     "paths": ["proto/ibc", "third_party/proto/google"]
   },
   "https://github.com/cosmos/cosmos-proto.git": {

@@ -26,7 +26,7 @@
   },
   "https://github.com/cosmos/gogoproto.git": {
     "include": true,
-    "branch": "master",
+    "branch": "main",
     "paths": ["gogoproto"]
   },
   "https://github.com/confio/ics23.git": {
