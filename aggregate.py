@@ -74,13 +74,27 @@ for repo_url, repo_config in coin_config.items():
     # Copy proto files to root_dir
     for proto_folder in repo_config['paths']:
         proto_dir = os.path.join(repo_dir, proto_folder)
-        category_name = proto_folder.split('/')[-1]
+        proto_path_list = proto_folder.split('/')
+
+        # If the path consists of 2 or less consider the latest entry to be the according path
+        if len(proto_path_list) <= 2:
+            proto_path_in_repo = proto_path_list[-1]
+        else: # If the path has more than 2 items remove the first one and take the rest
+            proto_path_list.pop(0)
+            proto_path_in_repo = "/".join(proto_path_list)
+
+        # Fix compiling for Google protobuf
+        if proto_path_in_repo == 'proto/google':
+            proto_path_in_repo = proto_path_in_repo.split('/')[1]
+
         try:
-            shutil.copytree(proto_dir, root_abs_path + "/" + category_name, dirs_exist_ok=True, ignore=include_patterns("*.proto"))
-            print(f"Copied {category_name}")
+            shutil.copytree(proto_dir, root_abs_path + "/" + proto_path_in_repo, dirs_exist_ok=True, ignore=include_patterns("*.proto"))
+            print(f"Copied {proto_path_in_repo}")
         except OSError as exc:
             try:
-                shutil.copy(proto_dir, root_abs_path)
+                proto_path_in_repo_for_file = "/".join(proto_path_in_repo.split('/')[:-1]) # Remove file from path ending to be compatible with the folder creation and copy path
+                os.makedirs(os.path.dirname(root_abs_path + "/" + proto_path_in_repo_for_file), exist_ok=True) # Create folder for file
+                shutil.copy(proto_dir, root_abs_path  )
                 print(f"File {proto_dir} copied successfully")
             except:
                 raise
