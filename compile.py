@@ -8,7 +8,6 @@ package_name = 'src/osmosis_protobuf'
 logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logging.DEBUG)
 absolute_path = os.path.abspath(package_name)
 
-
 def run_protoc(filepath):
     if os.path.basename(filepath) == "query.proto" or os.path.basename(filepath) == "service.proto":
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
