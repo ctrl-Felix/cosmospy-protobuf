@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "osmosis_protobuf"
-version = "0.1.2"
+version = "0.1.4"
 description = "This package contains a compiled python version of all osmosis protobuf files with their dependencies"
 authors = [
     { name = "ctrl-felix", email = "dev@ctrl-felix.de" },
