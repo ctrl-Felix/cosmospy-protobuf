@@ -13,6 +13,7 @@ def run_protoc(filepath):
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                '--proto_path', absolute_path,
                '--python_out', package_name,
+               '--pyi_out', package_name,
                '--grpc_python_out', package_name,
                filepath]
         logging.info(f"Compiling proto and grpc file: {filepath}")
@@ -20,6 +21,7 @@ def run_protoc(filepath):
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                f'--proto_path={absolute_path}',
                f'--python_out={package_name}',
+               f'--pyi_out={package_name}',
                filepath]
         logging.info(f"Compiling proto file: {filepath}")
 
