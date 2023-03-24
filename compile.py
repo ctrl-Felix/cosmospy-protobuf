@@ -1,19 +1,25 @@
+import argparse
 import os
 import re
 import subprocess
 import sys
 import logging
 
-package_name = 'src/evmos_protobuf'
+parser = argparse.ArgumentParser(description='Aggregate all protobuf files')
+parser.add_argument('-p', '--package_name', type=str, default="cosmospy_protobuf", help="Name for the package to build. This will aggregate all files in the src/{package_name} folder")
+args = parser.parse_args()
+
+
+package_name = 'src/' + args.package_name
 logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logging.DEBUG)
 absolute_path = os.path.abspath(package_name)
-
 
 def run_protoc(filepath):
     if os.path.basename(filepath) == "query.proto" or os.path.basename(filepath) == "service.proto":
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                '--proto_path', absolute_path,
                '--python_out', package_name,
+               '--pyi_out', package_name,
                '--grpc_python_out', package_name,
                filepath]
         logging.info(f"Compiling proto and grpc file: {filepath}")
@@ -21,6 +27,7 @@ def run_protoc(filepath):
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                f'--proto_path={absolute_path}',
                f'--python_out={package_name}',
+               f'--pyi_out={package_name}',
                filepath]
         logging.info(f"Compiling proto file: {filepath}")
 
