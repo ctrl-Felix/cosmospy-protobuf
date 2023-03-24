@@ -1,0 +1,43 @@
+{
+  "https://github.com/public-awesome/stargaze.git": {
+    "include": true,
+    "branch": "v9.0.0",
+    "paths": ["proto/stargaze"]
+  },
+  "https://github.com/cosmos/cosmos-sdk.git": {
+    "include": true,
+    "branch": "v0.45.14",
+    "paths": ["proto/cosmos"]
+  },
+  "https://github.com/informalsystems/tendermint.git": {
+    "include": true,
+    "branch": "v0.34.26",
+    "paths": ["proto/tendermint"]
+  },
+  "https://github.com/cosmos/ibc-go": {
+    "include": true,
+    "branch": "v4.3.0",
+    "paths": ["proto/ibc", "third_party/proto/google"]
+  },
+  "https://github.com/regen-network/cosmos-proto.git": {
+    "include": true,
+    "branch": "v0.3.1",
+    "paths": ["cosmos.proto"],
+    "target": "cosmos_proto"
+  },
+  "https://github.com/cosmos/gogoproto.git": {
+    "include": true,
+    "branch": "main",
+    "paths": ["gogoproto"]
+  },
+  "https://github.com/CosmWasm/wasmd.git": {
+    "include": true,
+    "branch": "v0.30.0",
+    "paths": ["proto/cosmwasm/wasm/v1"]
+  },
+ "https://github.com/cosmos/ics23.git": {
+   "include": true,
+   "branch": "release/v0.9.x",
+   "paths": ["proofs.proto"]
+ }
+}

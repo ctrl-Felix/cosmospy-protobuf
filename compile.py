@@ -1,10 +1,16 @@
+import argparse
 import os
 import re
 import subprocess
 import sys
 import logging
 
-package_name = 'src/cosmospy_protobuf'
+parser = argparse.ArgumentParser(description='Aggregate all protobuf files')
+parser.add_argument('-p', '--package_name', type=str, default="cosmospy_protobuf", help="Name for the package to build. This will aggregate all files in the src/{package_name} folder")
+args = parser.parse_args()
+
+
+package_name = 'src/' + args.package_name
 logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logging.DEBUG)
 absolute_path = os.path.abspath(package_name)
 
