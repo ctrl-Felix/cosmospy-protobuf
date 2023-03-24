@@ -10,6 +10,7 @@ from git import Repo
 
 parser = argparse.ArgumentParser(description='Aggregate all protobuf files')
 parser.add_argument('coin', type=str, help="Coin to parse from the .json file in the config folder")
+parser.add_argument('-p', '--package_name', type=str, default="cosmospy_protobuf", help="Name for the package to build. This will aggregate all files in the src/{package_name} folder")
 args = parser.parse_args()
 
 # https://stackoverflow.com/questions/52071642/python-copying-the-files-with-include-pattern
@@ -45,8 +46,10 @@ project_dir = os.path.join(tmp_dir, str(time.time()))
 os.mkdir(project_dir)
 
 # Delete all existing protobuf files
-root_dir = 'src/osmosis_protobuf'
+root_dir = "src/" + args.package_name
 root_abs_path = os.path.join(d, root_dir)
+os.makedirs(root_abs_path, exist_ok=True)  # Create folder for package
+
 for filename in os.listdir(root_abs_path):
     if filename == ".gitignore":
         continue
@@ -75,6 +78,7 @@ for repo_url, repo_config in coin_config.items():
     for proto_folder in repo_config['paths']:
         proto_dir = os.path.join(repo_dir, proto_folder)
         proto_path_list = proto_folder.split('/')
+        target = repo_config["target"] + "/" if "target" in repo_config else ""
 
         # If the path consists of 2 or less consider the latest entry to be the according path
         if len(proto_path_list) <= 2:
@@ -88,19 +92,18 @@ for repo_url, repo_config in coin_config.items():
             proto_path_in_repo = proto_path_in_repo.split('/')[1]
 
         try:
-            shutil.copytree(proto_dir, root_abs_path + "/" + proto_path_in_repo, dirs_exist_ok=True, ignore=include_patterns("*.proto"))
+            shutil.copytree(proto_dir, root_abs_path + "/" + (target if target else proto_path_in_repo), dirs_exist_ok=True, ignore=include_patterns("*.proto"))
             print(f"Copied {proto_path_in_repo}")
         except OSError as exc:
             try:
-                proto_path_in_repo_for_file = "/".join(proto_path_in_repo.split('/')[:-1]) # Remove file from path ending to be compatible with the folder creation and copy path
-                os.makedirs(os.path.dirname(root_abs_path + "/" + proto_path_in_repo_for_file), exist_ok=True) # Create folder for file
-                shutil.copy(proto_dir, root_abs_path  )
+                proto_path_in_repo_for_file = target if target else "/".join(proto_path_in_repo.split('/')[:-1])# Remove file from path ending to be compatible with the folder creation and copy path
+                os.makedirs(os.path.dirname(root_abs_path + "/" +  proto_path_in_repo_for_file), exist_ok=True) # Create folder for file
+                shutil.copy(proto_dir, root_abs_path + "/" + proto_path_in_repo_for_file  )
                 print(f"File {proto_dir} copied successfully")
             except:
                 raise
 
     i += 1
-
 
 
 
