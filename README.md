@@ -30,11 +30,18 @@ print(r.balances)
 
 ## Build yourself
 There are two scripts helping you to fork this repository to work with any cosmos based coin.
+
+Addititional Requirements:
+1. `grpcio-tools`
+2. `GitPython`
+3. `protoletariat`
+
+Steps:
 1. Create a config in ``configs`` and take a existing one as example
 2. Run the ``aggregate.py`` file with your filename without ``.json`` (Example ``python aggregate.py cosmos``)
 3. Run the ``compile.py`` to compile all your files to protobuf
 4. Build your package. You're done!
-5. 
+
 ## Protobuf compilation 
 
 The files are compiled using the ``grpc_tools.protoc`` command from the [grpcio-tools](https://pypi.org/project/grpcio-tools/) library.
@@ -54,3 +61,4 @@ Currently following coins are maintained by me:
 * Cosmos (this branch)
 * Evmos (branch: ``chain/evmos``, package name: ``evmos-protobuf``)
 * Osmosis (branch: ``chain/osmosis``, package name: `osmosis-protobuf`)
+* Stargaze (branch: ``chain/stargaze``, package name: `stargaze-protobuf`)
