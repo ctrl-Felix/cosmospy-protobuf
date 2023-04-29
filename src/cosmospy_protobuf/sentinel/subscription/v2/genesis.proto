@@ -1,0 +1,22 @@
+syntax = "proto3";
+package sentinel.subscription.v2;
+
+import "gogoproto/gogo.proto";
+import "google/protobuf/any.proto";
+import "sentinel/subscription/v2/params.proto";
+import "sentinel/subscription/v2/quota.proto";
+
+option go_package = "github.com/sentinel-official/hub/x/subscription/types";
+option (gogoproto.equal_all)           = false;
+option (gogoproto.goproto_getters_all) = false;
+
+message GenesisSubscription {
+  google.protobuf.Any subscription = 1;
+  repeated Quota quotas            = 2 [ (gogoproto.nullable) = false ];
+}
+
+message GenesisState {
+  repeated GenesisSubscription subscriptions = 1
+      [ (gogoproto.nullable) = false ];
+  Params params = 2 [ (gogoproto.nullable) = false ];
+}
