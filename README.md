@@ -62,3 +62,6 @@ Currently following coins are maintained by me:
 * Evmos (branch: ``chain/evmos``, package name: ``evmos-protobuf``)
 * Osmosis (branch: ``chain/osmosis``, package name: `osmosis-protobuf`)
 * Stargaze (branch: ``chain/stargaze``, package name: `stargaze-protobuf`)
+
+Maintained by external contributors:
+* Sentinel (branch: ``chain/sentinel``, package name: `sentinel-protobuf`)
