@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sentinel_protobuf"
-version = "0.2.0"
+version = "0.2.2"
 description = "This package contains a compiled python version of all sentinel protobuf files with their dependencies"
 authors = [
     { name = "freQniK", email = "freQniK@mathnodes.com" },
