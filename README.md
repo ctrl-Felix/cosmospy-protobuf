@@ -5,7 +5,7 @@ This repository compains the whole cosmos protobuf files compiled for python and
 
 You can install this package directly from the repository by using:
 ```
-python -m pip install cosmospy-protobuf
+python -m pip install sentinel-protobuf
 ```
 
 ## Usage
@@ -62,3 +62,4 @@ Currently following coins are maintained by me:
 * Evmos (branch: ``chain/evmos``, package name: ``evmos-protobuf``)
 * Osmosis (branch: ``chain/osmosis``, package name: `osmosis-protobuf`)
 * Stargaze (branch: ``chain/stargaze``, package name: `stargaze-protobuf`)
+* Sentinel (branch: ``chain/sentinel``, package name `sentinel-protobuf`)

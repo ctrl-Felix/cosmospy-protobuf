@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "cosmospy_protobuf"
+name = "sentinel_protobuf"
 version = "0.2.0"
-description = "This package contains a compiled python version of all cosmos protobuf files with their dependencies"
+description = "This package contains a compiled python version of all sentinel protobuf files with their dependencies"
 authors = [
-    { name = "ctrl-felix", email = "dev@ctrl-felix.de" },
+    { name = "freQniK", email = "freQniK@mathnodes.com" },
 ]
 readme = "README.md"
-keywords = ["cosmospy", "proto", "cosmospy-protobuf", "cosmos", "cosmos-protobuf", "protobuf"]
+keywords = ["cosmospy", "proto", "cosmospy-protobuf", "cosmos", "sentinel-protobuf", "protobuf", "sentinel"]
 license = {text = "BSD 3-Clause License"}
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -22,8 +22,8 @@ dependencies = [
 dynamic = []
 
 [project.urls]
-"Homepage" = "https://github.com/ctrl-Felix/cosmospy-protobuf/"
-"Bug Tracker" = "https://github.com/ctrl-Felix/cosmospy-protobuf/issues"
+"Homepage" = "https://github.com/MathNodes/cosmospy-protobuf/"
+"Bug Tracker" = "https://github.com/MathNodes/cosmospy-protobuf/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/cosmospy_protobuf"]
+packages = ["src/sentinel_protobuf"]
