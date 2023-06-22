@@ -21,6 +21,7 @@ def run_protoc(filepath):
                '--python_out', package_name,
                '--pyi_out', package_name,
                '--grpc_python_out', package_name,
+               '--grpclib_python_out', package_name,
                filepath]
         logging.info(f"Compiling proto and grpc file: {filepath}")
     else:
@@ -39,6 +40,12 @@ def fix_proto_imports(filepath):
     cmd = [sys.executable, '-m', 'protoletariat',
            '--create-package', '--in-place',
            '--python-out', package_name,
+           '--module-suffixes', '_pb2.py',
+           '--module-suffixes', '_pb2.pyi',
+           '--module-suffixes', '_pb2_grpc.py',
+           '--module-suffixes', '_pb2_grpc.pyi',
+           '--module-suffixes', '_grpc.py',
+           '--module-suffixes', '_grpc.pyi',
            'protoc', f'--proto-path={absolute_path}',
            filepath]
     subprocess.run(cmd)
