@@ -1,9 +1,9 @@
 import argparse
+import logging
 import os
 import re
 import subprocess
 import sys
-import logging
 
 parser = argparse.ArgumentParser(description="Aggregate all protobuf files")
 parser.add_argument(
