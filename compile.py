@@ -11,23 +11,20 @@ parser.add_argument(
     "--package_name",
     type=str,
     default="cosmospy_protobuf",
-    help="Name for the package to build. This will aggregate all files in the src/{package_name} folder",
+    help=
+    "Name for the package to build. This will aggregate all files in the src/{package_name} folder",
 )
 args = parser.parse_args()
 
-
 package_name = "src/" + args.package_name
-logging.basicConfig(
-    format="%(asctime)s - %(levelname)s:%(message)s", level=logging.DEBUG
-)
+logging.basicConfig(format="%(asctime)s - %(levelname)s:%(message)s",
+                    level=logging.DEBUG)
 absolute_path = os.path.abspath(package_name)
 
 
 def run_protoc(filepath):
-    if (
-        os.path.basename(filepath) == "query.proto"
-        or os.path.basename(filepath) == "service.proto"
-    ):
+    if (os.path.basename(filepath) == "query.proto"
+            or os.path.basename(filepath) == "service.proto"):
         cmd = [
             sys.executable,
             "-m",
@@ -100,7 +97,8 @@ def walk_through_project_and_fix_imports(directory):
     for root, dirs, files in os.walk(directory):
         for filename in files:
             if filename.endswith(".proto"):
-                fix_proto_imports(os.path.abspath(os.path.join(root, filename)))
+                fix_proto_imports(os.path.abspath(os.path.join(root,
+                                                               filename)))
                 logging.info(f"Fixed imports for {filename}")
 
 
@@ -126,8 +124,7 @@ def rename_any_proto_imports(directory):
                                 r'^import "google/protobuf/any.proto";\n',
                                 'import "google/protobuf/cosmos_any.proto";\n',
                                 line,
-                            )
-                        )
+                            ))
 
 
 # rename_any_proto_imports(package_name)
