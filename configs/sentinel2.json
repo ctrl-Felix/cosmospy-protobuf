@@ -1,7 +1,7 @@
 {
   "https://github.com/sentinel-official/hub.git": {
     "include": true,
-    "branch": "master",
+    "branch": "development",
     "paths": ["proto/sentinel"]
   },
   "https://github.com/cosmos/cosmos-sdk.git": {
