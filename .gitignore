@@ -3,3 +3,4 @@ test/
 dist/
 cosmospy_protobuf.egg-info
 tmp/
+.github
