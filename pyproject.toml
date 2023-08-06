@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cosmospy_protobuf"
-version = "0.2.0"
+version = "0.3.0"
 description = "This package contains a compiled python version of all cosmos protobuf files with their dependencies"
 authors = [
     { name = "ctrl-felix", email = "dev@ctrl-felix.de" },
