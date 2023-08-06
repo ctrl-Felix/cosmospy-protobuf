@@ -1,5 +1,6 @@
 .idea
 test/
 dist/
-*.egg-info
+cosmospy_protobuf.egg-info
 tmp/
+venv/

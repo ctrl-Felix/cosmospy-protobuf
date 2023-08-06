@@ -1,13 +1,13 @@
 {
   "https://github.com/osmosis-labs/osmosis.git": {
     "include": true,
-    "branch": "v15.0.0",
+    "branch": "v16.1.2",
     "paths": ["proto/osmosis"]
   },
   "https://github.com/cosmos/cosmos-sdk.git": {
     "include": true,
-    "branch": "v0.46.10",
-    "paths": ["proto/cosmos"]
+    "branch": "v0.47.3",
+    "paths": ["proto/cosmos", "proto/amino"]
   },
   "https://github.com/informalsystems/tendermint.git": {
     "include": true,
@@ -21,12 +21,12 @@
   },
   "https://github.com/cosmos/cosmos-proto.git": {
     "include": true,
-    "branch": "v1.0.0-alpha8",
+    "branch": "v1.0.0-beta.2",
     "paths": ["proto/cosmos_proto"]
   },
-  "https://github.com/cosmos/gogoproto.git": {
+  "https://github.com/regen-network/protobuf": {
     "include": true,
-    "branch": "main",
+    "branch": "v1.3.3-alpha.regen.1",
     "paths": ["gogoproto"]
   },
   "https://github.com/cosmos/ics23.git": {
@@ -36,8 +36,8 @@
   },
   "https://github.com/osmosis-labs/wasmd.git": {
     "include": true,
-    "branch": "v0.30.0-osmo-v15",
-    "paths": ["proto/cosmwasm/wasm/v1"]
+    "branch": "v0.31.0-osmo-v16",
+    "paths": ["proto/cosmwasm"]
   }
 
 }
