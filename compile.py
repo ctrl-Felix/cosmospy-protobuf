@@ -4,6 +4,7 @@ import os
 import re
 import subprocess
 import sys
+
 parser = argparse.ArgumentParser(description="Aggregate all protobuf files")
 parser.add_argument(
     "-p",
@@ -132,6 +133,7 @@ def rename_any_proto_imports(directory):
                             'import "google/protobuf/cosmos_any.proto";\n',
                             line,
                         ))
+
 
 # rename_any_proto_imports(package_name)
 remove_all_compiled_python_files(package_name)

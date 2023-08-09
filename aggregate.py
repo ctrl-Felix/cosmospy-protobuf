@@ -10,8 +10,10 @@ from git import Repo
 
 parser = argparse.ArgumentParser(description='Aggregate all protobuf files')
 parser.add_argument('coin', type=str, help="Coin to parse from the .json file in the config folder")
-parser.add_argument('-p', '--package_name', type=str, default="osmosis_protobuf", help="Name for the package to build. This will aggregate all files in the src/{package_name} folder")
+parser.add_argument('-p', '--package_name', type=str, default="osmosis_protobuf",
+                    help="Name for the package to build. This will aggregate all files in the src/{package_name} folder")
 args = parser.parse_args()
+
 
 # https://stackoverflow.com/questions/52071642/python-copying-the-files-with-include-pattern
 def include_patterns(*patterns):
@@ -23,6 +25,8 @@ def include_patterns(*patterns):
         return ignore
 
     return _ignore_patterns
+
+
 # Get current directory
 d = dirname(abspath(__file__))
 
@@ -36,7 +40,6 @@ try:
 except Exception:
     print("Coin couldn't be found")
     exit()
-
 
 tmp_dir = os.path.join(d, "tmp")
 if not os.path.isdir(tmp_dir):
@@ -79,16 +82,18 @@ for repo_url, repo_config in coin_config.items():
         proto_dir = os.path.join(repo_dir, proto_folder)
         proto_path_list = proto_folder.split('/')
         target = repo_config["target"] + "/" if "target" in repo_config else ""
-        proto_path_in_repo = proto_path_list[-1]
-
+        proto_path_in_repo = root_abs_path + "/" + (target if target else proto_path_list[-1]).replace("-", "_")
+        formatted_proto_path_in_package = proto_path_in_repo
         try:
-            shutil.copytree(proto_dir, root_abs_path + "/" + (target if target else proto_path_in_repo), dirs_exist_ok=True, ignore=include_patterns("*.proto"))
-            print(f"Copied {proto_path_in_repo}")
+            shutil.copytree(proto_dir, formatted_proto_path_in_package,
+                            dirs_exist_ok=True, ignore=include_patterns("*.proto"))
+            print(f"Copied {formatted_proto_path_in_package}")
         except OSError as exc:
             try:
-                proto_path_in_repo_for_file = target if target else "/".join(proto_path_in_repo.split('/')[:-1])# Remove file from path ending to be compatible with the folder creation and copy path
-                os.makedirs(os.path.dirname(root_abs_path + "/" +  proto_path_in_repo_for_file), exist_ok=True) # Create folder for file
-                shutil.copy(proto_dir, root_abs_path + "/" + proto_path_in_repo_for_file  )
+                # Remove file from path ending to be compatible with the folder creation and copy path
+                proto_path_in_repo_for_file = target if target else "/".join(proto_path_in_repo.split('/')[:-1])
+                os.makedirs(os.path.dirname(proto_path_in_repo_for_file), exist_ok=True)  # Create folder for file
+                shutil.copy(proto_dir, proto_path_in_repo_for_file)
                 print(f"File {proto_dir} copied successfully")
             except:
                 raise
@@ -96,4 +101,28 @@ for repo_url, repo_config in coin_config.items():
     i += 1
 
 
+# Rename all folders that contain dashes to folder names with underscores
+def recursively_check_filenames():
+    for root, dirs, files in os.walk(root_abs_path):
+        for dir in dirs:
+            if "-" in dir:
+                old_path = os.path.abspath(os.path.join(root, dir))
+                new_path = os.path.abspath(os.path.join(root, dir.replace("-", "_")))
+                shutil.move(src=old_path, dst=new_path)
+                print(f"Renamed {old_path} to {new_path}")
+                for root, dirs, files in os.walk(root_abs_path):
+                    for file in files:
+                        with open(os.path.abspath(os.path.join(root, file)), "r") as f:
+                            content = f.read()
 
+                        if dir in content:
+                            updated_content = content.replace(dir, dir.replace("-", "_"))
+                            print(f"Updating {dir} in {os.path.join(root, file)}")
+
+                            with open(os.path.abspath(os.path.join(root, file)), "w") as f:
+                                f.write(updated_content)
+
+                return recursively_check_filenames()
+
+
+recursively_check_filenames()

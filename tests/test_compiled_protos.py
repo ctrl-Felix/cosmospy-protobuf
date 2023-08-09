@@ -16,6 +16,7 @@ def test_imports():
         path_as_package_name = ".".join(path.replace(".py", "").split("/")[1:])
         if "google" in path_as_package_name:
             continue
+
         try:
             m = importlib.import_module(path_as_package_name)
         except ModuleNotFoundError as e:
