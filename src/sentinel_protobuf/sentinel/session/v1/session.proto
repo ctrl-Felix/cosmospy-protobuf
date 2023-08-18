@@ -7,7 +7,9 @@ import "google/protobuf/timestamp.proto";
 import "sentinel/types/v1/bandwidth.proto";
 import "sentinel/types/v1/status.proto";
 
+
 option go_package = "github.com/sentinel-official/hub/x/session/legacy/v1/types";
+
 option (gogoproto.equal_all)           = false;
 option (gogoproto.goproto_getters_all) = false;
 

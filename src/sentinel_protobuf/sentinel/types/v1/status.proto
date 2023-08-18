@@ -16,4 +16,5 @@ enum Status {
   STATUS_INACTIVE_PENDING = 2
       [ (gogoproto.enumvalue_customname) = "StatusInactivePending" ];
   STATUS_INACTIVE = 3 [ (gogoproto.enumvalue_customname) = "StatusInactive" ];
+
 }

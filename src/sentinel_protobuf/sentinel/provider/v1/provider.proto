@@ -1,7 +1,9 @@
 syntax = "proto3";
 package sentinel.provider.v1;
 
+
 option go_package = "github.com/sentinel-official/hub/x/provider/legacy/v1/types";
+
 
 import "gogoproto/gogo.proto";
 
