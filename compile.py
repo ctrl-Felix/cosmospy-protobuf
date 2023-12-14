@@ -15,7 +15,7 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s:%(message)s', level=logg
 absolute_path = os.path.abspath(package_name)
 
 def run_protoc(filepath):
-    if os.path.basename(filepath) == "query.proto" or os.path.basename(filepath) == "service.proto":
+    if os.path.basename(filepath) in ["query.proto", "querier.proto", "service.proto"]:
         cmd = [sys.executable, '-m', 'grpc_tools.protoc',
                '--proto_path', absolute_path,
                '--python_out', package_name,
