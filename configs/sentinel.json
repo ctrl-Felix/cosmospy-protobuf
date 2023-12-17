@@ -1,7 +1,7 @@
 {
   "https://github.com/sentinel-official/hub.git": {
     "include": true,
-    "branch": "development",
+    "branch": "v0.11.3",
     "paths": ["proto/sentinel"]
   },
   "https://github.com/cosmos/cosmos-sdk.git": {
@@ -38,9 +38,6 @@
     "include": true,
     "branch": "v1.0.0",
     "paths": ["proto/interchain_security/ccv"]
-=======
-    "branch": "master",
-    "paths": ["proto/sentinel"]
   }
 
 }
