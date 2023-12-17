@@ -27,6 +27,23 @@ r = stub.AllBalances(query_pb2.QueryAllBalancesRequest(address="osmo15hzhcvgs2lj
 print(r.balances)
 
 ```
+### Sentinel example
+The following code snippet will query all the subscription for sentnode123
+
+```python
+import grpc
+from sentinel_protobuf.sentinel.subscription.v2.subscription_pb2 import NodeSubscription
+from sentinel_protobuf.sentinel.subscription.v2.querier_pb2 import QuerySubscriptionsForNodeRequest
+from sentinel_protobuf.sentinel.subscription.v2.querier_pb2_grpc import QueryServiceStub
+
+# channel = grpc.secure_channel("host:port", grpc.ssl_channel_credentials())
+channel = grpc.insecure_channel("grpc.sentinel.co:9090")
+stub = QueryServiceStub(channel)
+
+response = stub.QuerySubscriptionsForNode(QuerySubscriptionsForNodeRequest(address="sentnode123"))
+for subscription in response.subscriptions:
+    print(NodeSubscription.FromString(subscription.value))
+```
 
 ## Build yourself
 There are two scripts helping you to fork this repository to work with any cosmos based coin.

@@ -11,7 +11,7 @@ option (gogoproto.goproto_getters_all) = false;
 // MsgSwapRequest defines the SDK message for swapping an ERC-20 token to the
 // native coin
 message MsgSwapRequest {
-  string from     = 1;
+  string frm     = 1;
   bytes tx_hash   = 2;
   string receiver = 3;
   string amount   = 4 [
