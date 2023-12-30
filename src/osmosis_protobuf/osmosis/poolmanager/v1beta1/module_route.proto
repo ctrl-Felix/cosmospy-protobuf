@@ -3,7 +3,7 @@ package osmosis.poolmanager.v1beta1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/osmosis-labs/osmosis/v16/x/poolmanager/types";
+option go_package = "github.com/osmosis-labs/osmosis/v21/x/poolmanager/types";
 
 // PoolType is an enumeration of all supported pool types.
 enum PoolType {
@@ -15,7 +15,7 @@ enum PoolType {
   // in x/gamm.
   Stableswap = 1;
   // Concentrated is the pool model specific to concentrated liquidity. It is
-  // defined in x/concentrated_liquidity.
+  // defined in x/concentrated-liquidity.
   Concentrated = 2;
   // CosmWasm is the pool model specific to CosmWasm. It is defined in
   // x/cosmwasmpool.
